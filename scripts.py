@@ -550,4 +550,79 @@ numpy.set_printoptions(sign=' ')
 print(numpy.eye(N,M,dtype=numpy.float))
 
 
-#
+#Array Mathematics
+
+import numpy
+N,M=map(int,input().split())
+a= numpy.array([input().split() for i in range(N)],int)
+b = numpy.array([input().split() for i in range(N)],int)
+print(numpy.add(a,b))
+print(numpy.subtract(a,b))
+print(numpy.multiply(a, b))
+print(a//b)
+print(numpy.mod(a, b))
+print(numpy.power(a, b))
+
+#Floor, Ceil and Rint
+
+import numpy
+A= numpy.array(input().split(),float)
+numpy.set_printoptions(sign=' ')
+print(numpy.floor(A), numpy.ceil(A), numpy.rint(A), sep = "\n")
+
+#Sum and Prod
+
+import numpy
+N,M=map(int,input().split())
+A = numpy.array([input().split() for i in range(N)], int)
+
+a = numpy.sum(A, axis= 0)
+print( numpy.prod(a))
+
+
+#Min and Max
+
+import numpy
+N,M=map(int,input().split())
+A = numpy.array([input().split() for i in range(N)], int)
+
+a = numpy.min(A, axis= 1)
+print(numpy.max(a))
+
+#Mean, Var, and Std
+
+import numpy
+N,M=map(int,input().split())
+A = numpy.array([input().split() for i in range(N)],int)
+numpy.set_printoptions(legacy='1.13')
+
+print(numpy.mean(A, axis=1))
+print(numpy.var(A, axis= 0))
+print(numpy.std(A, axis=None))
+
+#Dot and Cross
+
+import numpy
+N=int(input())
+A = numpy.array([input().split() for i in range(N)], int)
+B = numpy.array([input().split() for i in range(N)], int)
+
+print( numpy.dot(A,B))
+
+#Inner and Outer
+
+import numpy
+A = numpy.array(input().split(),int)
+B = numpy.array(input().split(),int)
+
+print(numpy.inner(A,B))
+print(numpy.outer(A,B))
+
+#Polynomials
+
+import numpy
+P = numpy.array(input().split(),float)
+x = float(input())
+print(numpy.polyval(P,x))
+
+
