@@ -625,4 +625,197 @@ P = numpy.array(input().split(),float)
 x = float(input())
 print(numpy.polyval(P,x))
 
+#Linear Algebra
+
+import numpy
+N = int(input())
+A = numpy.array([input().split() for i in range(N)], float)
+print(round(numpy.linalg.det(A),2))
+
+
+#Calendar Module
+
+import calendar
+MM, DD, YYYY= map(int,input().split())
+G = calendar.weekday(YYYY,MM,DD)
+if G==0:
+    print("MONDAY")
+elif G==1:
+    print("TUESDAY")
+elif G==2:
+    print("WEDNESDAY")
+elif G==3:
+    print("THURSDAY")
+elif G==4:
+    print("FRIDAY")
+elif G==5:
+    print("SATURDAY")
+elif G==6:
+    print("SUNDAY")
+
+
+#Exceptions
+
+N=int(input())
+for i in range(N):
+    try:
+        A,B=map(int,input().split())
+        print(A//B)
+    except Exception as e:
+        print("Error Code:",e)
+#Number Line Jumps
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the kangaroo function below.
+def kangaroo(x1, v1, x2, v2):
+    if v1!=v2 and (x1-x2)%(v2-v1)==0 and (x1-x2)/(v2-v1)>0:
+        return "YES"
+    else:
+        return "NO"
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    x1V1X2V2 = input().split()
+
+    x1 = int(x1V1X2V2[0])
+
+    v1 = int(x1V1X2V2[1])
+
+    x2 = int(x1V1X2V2[2])
+
+    v2 = int(x1V1X2V2[3])
+
+    result = kangaroo(x1, v1, x2, v2)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+#Recursive Digit Sum
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the superDigit function below.
+def superDigit(n, k):
+    c=k*sum(map(int,n))
+    if c%9==0:
+        return 9
+    else:
+        return c%9
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nk = input().split()
+
+    n = nk[0]
+
+    k = int(nk[1])
+
+    result = superDigit(n, k)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+#Viral Advertising
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the viralAdvertising function below.
+def viralAdvertising(n):
+    cond=5
+    like=2
+    cumulato=2
+    for _ in range(n-1):
+        cond=3*(cond//2)
+        like=cond//2
+        cumulato=cumulato+like
+    return cumulato
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    result = viralAdvertising(n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+#Insertion Sort - Part 1
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the insertionSort1 function below.
+def insertionSort1(n, arr):
+    F=arr[-1]
+    while F< arr[n-2] and n-2>=0:
+        arr[n-1]= arr[n-2]
+        print(*arr)
+        n=n-1
+    arr[n-1]=F
+    print(*arr)
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
+
+#Insertion Sort - Part 2
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the insertionSort2 function below.
+def insertionSort2(n, arr):
+    for i in range(1,n):
+        I=arr[i]
+        pos = i-1
+        while pos>=0 and I<arr[pos]:
+            arr[pos+1]= arr[pos]
+            pos=pos-1
+        arr[pos+1]=I
+        print(*arr)
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort2(n, arr)
+
 
