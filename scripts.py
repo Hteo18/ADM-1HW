@@ -817,5 +817,264 @@ if __name__ == '__main__':
     arr = list(map(int, input().rstrip().split()))
 
     insertionSort2(n, arr)
+    
+    #collections.Counter()
+
+from collections import Counter
+
+X = (int(input()))
+x =list(map(int,input().split()))
+N = int(input())
+sordi=0
+
+for i in range(N):
+   t,p=map(int,input().split())
+   if  t in x:
+    sordi= sordi+p
+    x.remove(t)
+print(sordi)
+
+
+#DefaultDict Tutorial
+
+from collections import defaultdict
+n,m=map(int,input().split())
+d= defaultdict(list)
+[d[input()].append(str(i+1)) for i in range(n)] 
+[print(" ".join(d[input()]) or -1) for i in range(m)]
+
+
+#Collections.namedtuple()
+
+from collections import namedtuple
+N = int(input())
+l=[]
+l.extend(input().split())
+t= namedtuple("t",l)
+cuntu=0
+for i in range(N):
+    r= t(*input().split())
+    cuntu=cuntu+int(r.MARKS)
+print(cuntu/N)
+
+
+#Collections.OrderedDict()
+
+from collections import OrderedDict
+N=int(input())
+d= OrderedDict()
+for i in range(N):
+    prodotto= input().split()
+    prezzo= prodotto[-1]
+    prodotto.pop()
+    if " ".join(prodotto) not in d:
+        d[" ".join(prodotto)]= int(prezzo)
+    else:
+        d[" ".join(prodotto)] += int(prezzo)
+for i in d:
+    print(i,d[i])
+
+
+#Word Order
+
+from collections import OrderedDict
+N= int(input())
+d = OrderedDict()
+
+for i in range(N):
+    parola=input()
+    d.setdefault(parola,0)
+    d[parola]+=1
+print(len(d))
+print(*d.values()) 
+
+
+#Collections.deque()
+
+from collections import deque
+d=deque()
+N=int(input())
+for i in range(N):
+    F=list(input().split())
+    if F[0]=="append":
+        d.append(int(F[1]))
+    elif F[0]=="appendleft":
+        d.appendleft(int(F[1]))
+    elif F[0]=="pop":
+        d.pop()
+    elif F[0]=="popleft":
+        d.popleft()
+print(*d)
+
+
+#Company Logo
+
+#!/bin/python3
+from collections import Counter
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    s = input()
+    c= Counter(sorted(s)).most_common(3)
+    for i in c:
+        print(*i)
+
+#Group(), Groups() & Groupdict()
+
+import re
+G=re.search(r'([a-zA-Z0-9])\1', input())
+if G==None:
+    print(-1)
+else:
+    print(G.group(1))
+
+
+#Exceptions
+
+N=int(input())
+for i in range(N):
+    try:
+        A,B=map(int,input().split())
+        print(A//B)
+    except Exception as e:
+        print("Error Code:",e)
+
+
+#Zipped!
+
+n,x=map(int,input().split())
+T=[]
+for i in range(x):
+    A=list(map(float,input().split()))
+    T.append(A)
+TT=zip(*T)
+for i in TT:
+    print(sum(i)/x)
+
+#Re.split()
+
+regex_pattern = r"[\.,\,]"	# Do not delete 'r'.
+
+#Re.findall() & Re.finditer()
+
+import re
+cons='bcdfghjklmnpqrstvwxyz'
+vocal='aeiou'
+a='(?<=['+cons+'])(['+vocal+']{2,})['+cons+']'
+contr=re.findall(a,input(),re.IGNORECASE)
+if contr:
+    print("\n".join(contr))
+else:
+    print("-1")
+
+#Re.start() & Re.end()
+
+import re
+S = input()
+K = input()
+if K in S:
+    print(*[(i.start(), (i.start()+len(K)-1)) for i in re.finditer(r'(?={})'.format(K),S)], sep='\n')
+else:
+    print('(-1, -1)')
+
+#Regex Substitution
+
+import re
+N=int(input())
+for _ in range(N):
+    print(re.sub('(?<=\s)\&\&\s','and ',re.sub('\s\|\|\s',' or ',input())))
+
+#Validating Roman Numerals
+
+regex_pattern = r"M{0,3}(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[VX]|V?I{0,3}$)"	# Do not delete 'r'.
+
+#Detect Floating Point Number
+
+import re
+T=int(input())
+for i in range(T):
+    print (bool(re.match(r'^[-+]?[0-9]*\.[0-9]+$', input()))) 
+
+#Validating phone numbers
+
+import re
+N=int(input())
+
+for i in range(N):
+    r = re.match(r'[7-9]\d{9}$',input())
+    if r:
+        print("YES")
+    else:
+        print("NO")
+
+#Validating and Parsing Email Addresses
+
+import re
+N=int(input())
+
+for i in range(N):
+    n,e=input().split()
+    r= re.match(r'<[A-Za-z](\w|-|\.|_)+@[A-Za-z]+\.[A-Za-z]{1,3}>',e)
+    if r:
+        print(n,e)
+
+#Hex Color Code
+
+import re
+N=int(input())
+for i in range(N):
+    l=re.findall(r':?.(#[0-9a-fA-F]{6}|#[0-9a-fA-F]{3})', input())
+    if l:
+        print(*l, sep='\n')
+
+#Validating UID
+
+import re
+T=int(input())
+for i in range(T):
+    if re.match(r'^(?!.*(.).*\1)(?=(?:.*[A-Z]){,})(?=(?:.*\d){3,})[A-Za-z0-9]{10}$',input()):
+        print('Valid') 
+    else:
+        print('Invalid')
+
+# Capitalize!
+
+
+
+# Complete the solve function below.
+def solve(s):
+    for i in s.split():
+        s=s.replace(i,i.capitalize())
+    return s
+
+#The Minion Game
+
+def minion_game(string):
+    # your code goes here
+   
+    vocali = 'AEIOU'
+    k = 0
+    t = 0
+    for i in range(len(s)):
+        if s[i] in vocali:
+            k += (len(s)-i)
+        else:
+            t += (len(s)-i)
+
+    if k > t:
+        print ("Kevin", k)
+    elif k< t:
+        print ("Stuart", t)
+    else:
+        print ("Draw")
+# I've used an help from the discussion
+ 
+
 
 
