@@ -1077,4 +1077,53 @@ def minion_game(string):
  
 
 
+#Piling Up!
+
+t= int(input())
+
+for t in range(t):
+    input()
+    lst = list(map(int,input().split()))
+    l = len(lst)
+    i = 0
+    while i < l - 1 and lst[i] >= lst[i+1]:
+        i += 1
+    while i < l-1  and lst[i] <= lst[i+1]:
+        i += 1
+    print ("Yes" if i == l - 1 else "No")
+
+#I've seen part of the solution on the web
+
+
+#Athlete Sort
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    nm = input().split()
+
+    n = int(nm[0])
+
+    m = int(nm[1])
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+
+    k = int(input())
+   
+
+    for r in sorted(arr, key=lambda r: int(r[k])):
+        print(*r)
+    
 
