@@ -1125,5 +1125,41 @@ if __name__ == '__main__':
 
     for r in sorted(arr, key=lambda r: int(r[k])):
         print(*r)
+
+#Decorators 2 - Name Directory
+
+
+
+def person_lister(f):
+    def inner(people):
+      return map(f, sorted([[e[0], e[1], int(e[2]), e[3]] for e in people], key=operator.itemgetter(2)))
+    return inner
+
+#String Formatting
+
+def print_formatted(number):
+   
+   
+    w = len("{0:b}".format(n))
+    for i in range(1,n+1):
+        print ("{0:{w}d} {0:{w}o} {0:{w}X} {0:{w}b}".format(i, w=w))
+    
+
+#Alphabet Rangoli
+
+import string
+
+def print_rangoli(size):
+   
+    a = string.ascii_lowercase
+
+   
+    L = []
+    for i in range(n):
+        s = "-".join(a[i:n])
+        L.append((s[::-1]+s[1:]).center(4*n-3, "-"))
+    print('\n'.join(L[:0:-1]+L))
+
+
     
 
